@@ -16,5 +16,10 @@ The character set here is Johab Code (KS C 5601-1992) that provides all 11,172 H
 * [Turbo C 2.01](https://drive.google.com/drive/folders/15jHp-THOiT0wDgwv7lfmTKjfJ_-m9nXl?usp=share_link)
 * [Borland C++ 3.0](https://drive.google.com/drive/folders/1MGpVNogr7GzgG62JnZBLpW158J24DsxU?usp=share_link)
 
+## Halla Pro Libraries
+Put the folder into C:\HLIB2 and C:\HLIB3 for Halla Pro 2.40 and 3.0 respectively.
+* [Halla Pro 2.40](https://drive.google.com/drive/folders/1RSi1LYoDtEzr0scNMaP08mtITR92M5rY?usp=share_link)
+* [Halla Pro 3.0](https://drive.google.com/drive/folders/1UpDA5MLPSfqtZnbbbI_B42i9_ClDzHzX?usp=share_link)
+
 ## Screenshot
 ![image](hantle_0.png)
