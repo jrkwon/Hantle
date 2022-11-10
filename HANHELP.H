@@ -1,0 +1,1 @@
+void help_manager(char *filename);

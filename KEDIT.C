@@ -1,13 +1,13 @@
 /*
- *  ÆÄÀÏ   : kedit.c
- *  ³»¿ë   :
- *  ±âÈ¹   : hantle.prj, nal.prj
- *  ³¯Â¥   : 93.03.16
- *  ¸¸µçÀÌ : ÇÑ¾ç´ëÇĞ±³ ÀüÀÚÅë½Å°øÇĞ°ú ÇÑÆ²¾Æ¸® ±ÇÀç¶ô
- *  ¾Ë¸²±Û : ÀÌ Ç®±×¸²ÀÇ ¹Ø±×¸²Àº °ø°³¸¦ ¿øÄ¢À¸·Î ÇÕ´Ï´Ù.
- *           ¿Ö³ÄÇÏ¸é, ³ªµµ ´Ù¸¥ ¹Ø±×¸²ÀÇ µµ¿òÀ» ¸¹ÀÌ ¹Ş¾ÒÀ¸´Ï±î¿ä.
- *           µû¶ó¼­, ÀÌ ¹Ø±×¸²À» ¹ŞÀ¸½Å ºĞÀº ´Ù¸¥µ¥ »ç¿ëÇÏ¼Åµµ µÇÁö¸¸
- *           »õ·Î ¸¸µç ¹Ø±×¸²µµ Àß Á¤¸®ÇÏ¼Å¼­ °ø°³ÇØ ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.
+ *  Ìa·©   : kedit.c
+ *  ¶w   :
+ *  ‹¡ÒB   : hantle.prj, nal.prj
+ *  i¼a   : 93.03.16
+ *   e—e·¡ : Ğe´·”ĞbŠa ¸å¸aÉ·¯¥‰·Ğb‰Á ĞeËi´aŸ¡ Š¥¸œb
+ *  ´iŸ±‹i : ·¡ Î‰‹aŸ±· £»‹aŸ±·e ‰·ˆŸi ¶¥Ã¢·a¡ Ğs“¡”a.
+ *           µá¡Ğa¡e, a•¡ ”aŸe £»‹aŸ±· •¡¶‘·i  g·¡ ¤h´v·a“¡Œa¶a.
+ *           ˜aœa¬á, ·¡ £»‹aŸ±·i ¤h·a¯¥ ¦…·e ”aŸe•A ¬a¶wĞa­a•¡ –A»¡ e
+ *           ¬¡  e—e £»‹aŸ±•¡ ¸i ¸÷Ÿ¡Ğa­a¬á ‰·ˆĞ º¯¡‹¡ ¤aœs“¡”a.
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -80,51 +80,51 @@ static void ctrl_k(int key);
 static void ctrl_q(int key);
 
 /*
- *  ÆíÁı±â ¿î¿µ¿¡ »ç¿ëµÇ´Â º¯¼öµé..
+ *  Íe»³‹¡ ¶…µwµA ¬a¶w–A“e ¥e®—i..
  */
-bool hanja_font_exist;                    /* ÇÑÀÚ ±Û²Ã ÆÄÀÏÀÌ Á¸ÀçÇÏ´Â Áö */
+bool hanja_font_exist;                    /* Ğe¸a ‹i© Ìa·©·¡ ¹¥¸Ğa“e »¡ */
 
 bool all_jobs_close;                      /* all jobs close */
 
 /*
- *  ÆíÁı¿¡ Á÷Á¢ °ü·ÃµÈ º¯¼öµé
+ *  Íe»³µA »¢¸ó ‰Åe–E ¥e®—i
  */
-unsigned char *memory;                   /* ½ÃÀÛÇÒ ¶§ ÆíÁıÇÒ ¸¸Å­ÀÇ °ø°£À» ÇÒ´ç¹Ş´Â´Ù */
-unsigned char *line_start;               /* ¾î´À ÇÑ ÁÙÀÇ ½ÃÀÛ Æ÷ÀÎÅÍ */
-unsigned char *current;                  /* ÇöÀç ÆíÁı ÁßÀÎ À§Ä¡ */
-unsigned char *last_pos;                 /* ¹Ù·Î ÀÌÀüÀÇ À§Ä¡ */
-unsigned char *b_b_ptr;                  /* ºí·°ÀÇ ½ÃÀÛ Æ÷ÀÎÅÍ */
-unsigned char *b_k_ptr;                  /* ºí·°ÀÇ ³¡ Æ÷ÀÎÅÍ */
-unsigned char *eofm;                     /* ÆÄÀÏÀÇ ¸¶Áö¸· */
-unsigned char work_file[80];             /* ÀÛ¾÷ ÆÄÀÏÀÇ ÀÌ¸§ */
-unsigned char block_file[80];            /* ºí·°À¸·Î ÀúÀå/ÀĞ¾î¿À±â ÆÄÀÏÀÇ ÀÌ¸§ */
-unsigned char write_file[80];            /* »õÀÌ¸§À¸·Î ÆÄÀÏÀÇ ÀÌ¸§ */
-unsigned char help_file[80];             /* µµ¿ò¸» ÆÄÀÏÀÇ ÀÌ¸§ */
-unsigned char line_buffer[MAXLINEBUF+1]; /* ÇöÀç ÆíÁı ÁßÀÎ ÁÙÀÇ ÀÓ½Ã ÀÛ¾÷ Àå¼Ò */
+unsigned char *memory;                   /* ¯¡¸bĞi ˜ Íe»³Ği  eÇq· ‰·ˆe·i Ği”w¤h“e”a */
+unsigned char *line_start;               /* ´á“a Ğe º‰· ¯¡¸b Í¡·¥Èá */
+unsigned char *current;                  /* Ñe¸ Íe»³ º—·¥ ¶áÃ¡ */
+unsigned char *last_pos;                 /* ¤a¡ ·¡¸å· ¶áÃ¡ */
+unsigned char *b_b_ptr;                  /* §iœâ· ¯¡¸b Í¡·¥Èá */
+unsigned char *b_k_ptr;                  /* §iœâ· { Í¡·¥Èá */
+unsigned char *eofm;                     /* Ìa·©·  a»¡ b */
+unsigned char work_file[80];             /* ¸b´ó Ìa·©· ·¡Ÿq */
+unsigned char block_file[80];            /* §iœâ·a¡ ¸á¸w/·ª´áµ¡‹¡ Ìa·©· ·¡Ÿq */
+unsigned char write_file[80];            /* ¬·¡Ÿq·a¡ Ìa·©· ·¡Ÿq */
+unsigned char help_file[80];             /* •¡¶‘ i Ìa·©· ·¡Ÿq */
+unsigned char line_buffer[MAXLINEBUF+1]; /* Ñe¸ Íe»³ º—·¥ º‰· ·±¯¡ ¸b´ó ¸w­¡ */
 
 bool insert_mode = true, indent_mode = true, saved = true, block_display = true;
 unsigned int curx, cury, user_task, max_line, base_y, base_x, block_size;
 long maxeditbuf;
 
 static unsigned int maxwidth, maxheight;
-/* Ä¿¼­¸¦ À§¾Æ·¡·Î ¿òÁ÷ÀÏ °æ¿ì ÀÌÀüÀÇ Ä¿¼­ À§Ä¡°¡ Áö±İ Ä¿¼­À§Ä¡º¸´Ù Å©´Ù¸é ÀÌ¸¦ ±â¾ï */
+/* Äá¬áŸi ¶á´aœ¡ ¶‘»¢·© ‰w¶ ·¡¸å· Äá¬á ¶áÃ¡ˆa »¡‹q Äá¬á¶áÃ¡¥¡”a Ça”a¡e ·¡Ÿi ‹¡´â */
 static unsigned int cur_most_x;
 /*
- *  ´ÙÀ½Àº ÆíÁı±âÀÇ ±â´ÉÅ°(ÀúÀå, ºÒ·¯¿À±â)¿¡ ´ëÇÑ ³»Á¤°ªÀÌ´Ù.
- *  ´Ü, ÇÑ¿µ Åä±ÛÅ°´Â ±âº»ÀûÀ¸·Î SHIFT-SPACEÀÌ°í, ÀÌ¿Ü¿¡ ´Ù¸¥ Å°µµ µî·ÏÇÒ ¼ö ÀÖ´Ù.
+ *  ”a·q·e Íe»³‹¡· ‹¡“wÇ¡(¸á¸w, ¦‰œáµ¡‹¡)µA ”Ğe ¸÷ˆt·¡”a.
+ *  ”e, Ğeµw É¡‹iÇ¡“e ‹¡¥¥¸â·a¡ SHIFT-SPACE·¡‰¡, ·¡¶AµA ”aŸe Ç¡•¡ —w¢Ği ® ·¶”a.
  */
-int save_file_key       = ALT_S;         /* Save : ÀúÀåÇÏ±â */
-int print_file_key      = ALT_P;         /* Print : ÀÎ¼âÇÏ±â */
-int help_key            = F1;            /* µµ¿ò¸» Å° */
-int han_toggle_key      = F2;            /* ÇÑ/¿µ ¹Ù²ŞÅ° */
-int hanja_conv_key      = F9;            /* ÇÑ±Û->ÇÑÀÚÅ° */
-int kbd_toggle_key      = ALT_K;         /* 3¹ú½Ä/2¹ú½Ä ¹Ù²ŞÅ° */
-int ks_graph_key        = F5;            /* KS 2¹ÙÀÌÆ® ±×¸²¹®ÀÚ ÀÔ·Â */
-int tg_graph_key        = F6;            /* TG 2¹ÙÀÌÆ® ±×¸²¹®ÀÚ ÀÔ·Â */
+int save_file_key       = ALT_S;         /* Save : ¸á¸wĞa‹¡ */
+int print_file_key      = ALT_P;         /* Print : ·¥­áĞa‹¡ */
+int help_key            = F1;            /* •¡¶‘ i Ç¡ */
+int han_toggle_key      = F2;            /* Ğe/µw ¤a‘Ç¡ */
+int hanja_conv_key      = F9;            /* Ğe‹i->Ğe¸aÇ¡ */
+int kbd_toggle_key      = ALT_K;         /* 3¤é¯¢/2¤é¯¢ ¤a‘Ç¡ */
+int ks_graph_key        = F5;            /* KS 2¤a·¡Ëa ‹aŸ±¢…¸a ·³b */
+int tg_graph_key        = F6;            /* TG 2¤a·¡Ëa ‹aŸ±¢…¸a ·³b */
 int menu_key            = F10;           /* pulldown menu */
-int quit_key            = ALT_X;         /* ÀúÀåÇÒ °ÍÀÎÁö ¹¯°í, ÆíÁıÀ» ³¡³»±â */
+int quit_key            = ALT_X;         /* ¸á¸wĞi ˆõ·¥»¡ ¢ˆ‰¡, Íe»³·i {‹¡ */
 char file_ext[5]        = ".TXT";        /* default file extension */
-char init_file_name[9]  = "UNTITLED";    /* ÃÊ±â ÆÄÀÏ ÀÌ¸§ */
+char init_file_name[9]  = "UNTITLED";    /* Á¡‹¡ Ìa·© ·¡Ÿq */
 
 static unsigned char *pre_ptr(unsigned char *ptr, int count)
 {
@@ -148,7 +148,7 @@ static unsigned char *next_ptr(unsigned char *ptr, int count)
 }
 
 /*
- * ÇöÀç Æ÷ÀÎÅÍ¿¡¼­ ±× ÁÙ ³¡±îÁöÀÇ ±æÀÌ
+ * Ñe¸ Í¡·¥ÈáµA¬á ‹a º‰ {Œa»¡· ‹©·¡
  */
 static unsigned int linewidth(unsigned char *ptr)
 {
@@ -160,7 +160,7 @@ static unsigned int linewidth(unsigned char *ptr)
 }
 
 /*
- *  msg ¹®ÀÚ¿­À» (sx, y)ÁÂÇ¥¿¡ Ãâ·ÂÇÏµÇ ex±îÁöÀÇ ³ª¸ÓÁö ºÎºĞÀº °ø¹éÀ¸·Î Ã¤¿î´Ù
+ *  msg ¢…¸aµi·i (sx, y)¹ÁÎaµA Â‰bĞa–A exŒa»¡· a á»¡ ¦¦…·e ‰·¤‚·a¡ À¶…”a
  */
 static void writef(int sx, int ex, int y, unsigned char *msg, int mode)
 {
@@ -180,7 +180,7 @@ static void writef(int sx, int ex, int y, unsigned char *msg, int mode)
 }
 
 /*
- *  delta¸¸Å­ ¾Æ·¡ ÁÙ·Î
+ *  delta eÇq ´aœ º‰¡
  */
 static void down_line(int delta)
 {
@@ -189,7 +189,7 @@ static void down_line(int delta)
 }
 
 /*
- *  ÇÑÁÙ »ğÀÔ
+ *  Ğeº‰ ¬s·³
  */
 static void insert_line(int y)
 {
@@ -197,7 +197,7 @@ static void insert_line(int y)
 }
 
 /*
- *  ÇÑÁÙ Áö¿ì±â
+ *  Ğeº‰ »¡¶‹¡
  */
 static void delete_line(int y)
 {
@@ -205,7 +205,7 @@ static void delete_line(int y)
 }
 
 /*
- *  ÀÚÆÇÀÔ·ÂÀÌ ¾øÀ» ¶§ ÇÏ´Â ÀÏ...
+ *  ¸aÌe·³b·¡ ´ô·i ˜ Ğa“e ·©...
  */
 static void user_func(int kbd_check)
 {
@@ -253,7 +253,7 @@ static unsigned int get_key(int x, int y, int *state)
 }
 
 /*
- *  µÎ°³ÀÇ Å°ÀÇ Á¶ÇÕÀ¸·Î ÀÌ·ç¾îÁø °Í¿¡¼­ ±× µÎ¹øÂ° °ÍÀ» ÀÔ·Â¹Ş´Â´Ù.
+ *  –ˆ· Ç¡· ¹¡Ğs·a¡ ·¡´á»¥ ˆõµA¬á ‹a –¤å¼ ˆõ·i ·³b¤h“e”a.
  *  Ctrl-KB, Ctrl-KK, ...
  */
 static unsigned int get_key2(int indicator)
@@ -339,7 +339,7 @@ static bool insert_ptr(unsigned int size, unsigned char content,  unsigned char 
 }
 
 /*
- *  start¿¡¼­ finish±îÁö ¸î ÁÙ?
+ *  startµA¬á finishŒa»¡ ¡y º‰?
  */
 unsigned int line_count(unsigned char *start, unsigned char *finish)
 {
@@ -362,7 +362,7 @@ static unsigned int block_line_count(unsigned char *start, unsigned char *finish
 }
 
 /*
- *  ÇöÀç Æ÷ÀÎÅÍ¿¡¼­ size¸¸Å­ Áö¿î´Ù.
+ *  Ñe¸ Í¡·¥ÈáµA¬á size eÇq »¡¶…”a.
  */
 static unsigned int delete(unsigned int size)
 {
@@ -403,36 +403,36 @@ static unsigned int delete(unsigned int size)
 }
 
 /*
- *  »óÅÂÁÙ
+ *  ¬wÈº‰
  *           1         2         3         4         5         6         7         8
  *  12345678901234567890123456789012345678901234567890123456789012345678901234567890
- *   ÇÑ±Û 2¹ú½Ä |0000ÁÙ 000Ä­ |  »ğÀÔ |  µé¿©¾²±â |  FILENAME.EXT
+ *   Ğe‹i 2¤é¯¢ |0000º‰ 000Äe |  ¬s·³ |  —iµa³a‹¡ |  FILENAME.EXT
  */
 
 void disp_kbd_status(void)
 {
   unsigned char kbd_msg[40];
 
-  strcpy(kbd_msg, (HanKbdKind == HANKBD2) ? "ÇÑ±Û 2¹ú½Ä" : "ÇÑ±Û 3¹ú½Ä");
-  writef(1, 1+strlen(kbd_msg)-1, hgetmaxax()-1, HanKbdState ? kbd_msg : "¿µ¹®  ¹Ì±¹", REVERSE);
+  strcpy(kbd_msg, (HanKbdKind == HANKBD2) ? "Ğe‹i 2¤é¯¢" : "Ğe‹i 3¤é¯¢");
+  writef(1, 1+strlen(kbd_msg)-1, hgetmaxax()-1, HanKbdState ? kbd_msg : "µw¢…  £¡Š‚", REVERSE);
 }
 
 static void disp_coord_status(void)
 {
   unsigned char msg[40];
 
-  sprintf(msg, "%4uÁÙ%4uÄ­", base_y+cury+1, base_x+curx+1);
+  sprintf(msg, "%4uº‰%4uÄe", base_y+cury+1, base_x+curx+1);
   writef(13, 13+strlen(msg)-1, hgetmaxax()-1, msg, REVERSE);
 }
 
 static void disp_ins_status(void)
 {
-  writef(29, 29+strlen("»ğÀÔ")-1, hgetmaxax()-1, insert_mode ? "»ğÀÔ" : "¼öÁ¤", REVERSE);
+  writef(29, 29+strlen("¬s·³")-1, hgetmaxax()-1, insert_mode ? "¬s·³" : "®¸÷", REVERSE);
 }
 
 void disp_indent_status(void)
 {
-  writef(37, 37+strlen("µé¿©¾²±â")-1, hgetmaxax()-1, indent_mode ? "µé¿©¾²±â" : "³»¾î¾²±â", REVERSE);
+  writef(37, 37+strlen("—iµa³a‹¡")-1, hgetmaxax()-1, indent_mode ? "—iµa³a‹¡" : "´á³a‹¡", REVERSE);
 }
 
 
@@ -445,12 +445,12 @@ void disp_status(void)
 {
   unsigned char msg[80], kbd_msg[40];
 
-  strcpy(kbd_msg, (HanKbdKind == HANKBD2) ? "ÇÑ±Û 2¹ú½Ä" : "ÇÑ±Û 3¹ú½Ä");
-  sprintf(msg, " %s¦¢%4uÁÙ %3uÄ­ ¦¢ %s ¦¢ %s ¦¢ %s",
-      HanKbdState ? kbd_msg : "¿µ¹®  ¹Ì±¹",
+  strcpy(kbd_msg, (HanKbdKind == HANKBD2) ? "Ğe‹i 2¤é¯¢" : "Ğe‹i 3¤é¯¢");
+  sprintf(msg, " %sÔ³%4uº‰ %3uÄe Ô³ %s Ô³ %s Ô³ %s",
+      HanKbdState ? kbd_msg : "µw¢…  £¡Š‚",
       base_y+cury+1, base_x+curx+1,
-      (insert_mode) ? "»ğÀÔ" : "¼öÁ¤",
-      (indent_mode) ? "µé¿©¾²±â" : "³»¾î¾²±â", split_filename(work_file));
+      (insert_mode) ? "¬s·³" : "®¸÷",
+      (indent_mode) ? "—iµa³a‹¡" : "´á³a‹¡", split_filename(work_file));
   writef(0, hgetmaxax()-1, hgetmaxay()-1, msg, REVERSE);
 }
 
@@ -567,7 +567,7 @@ void block_write(void)
         if(!strchr(temp_name, '.'))
           strcat(temp_name, file_ext);
         if(file_or_dir_exist(temp_name)) {
-          if(yesno(" ÆÄÀÏÀÌ ÀÌ¹Ì ÀÖ´Âµ¥, µ¤¾î ¾µ±î¿ä ? ", NO_ANS) == YES_ANS)
+          if(yesno(" Ìa·©·¡ ·¡£¡ ·¶“e•A, ”ü´á ³iŒa¶a ? ", NO_ANS) == YES_ANS)
             save_file(b_b_ptr, b_k_ptr, temp_name);
         }
       }
@@ -600,7 +600,7 @@ void block_read(void)
         strcat(temp_name, file_ext);
       b_b_ptr = current;
       if(!file_or_dir_exist(temp_name)) {
-        disperror(" ±×·± ÆÄÀÏÀº ¾ø´Âµ¥¿ä ");
+        disperror(" ‹aœå Ìa·©·e ´ô“e•A¶a ");
         return;
       }
       block_size = load_file(temp_name, BLOCK_LOAD);
@@ -895,7 +895,7 @@ static void hanja(void)
     if(ishangul1st(line_start, curx+base_x)) {
       hangulcode = ((*current) << 8) + *(current+1);
       hanjacode = findhanja(hgetmaxax()/2 - 14, 8, *current, *(current+1));
-      if(hangulcode != hanjacode) {  /* ÇÑÀÚ°¡ ¼±ÅÃ µÇ¾úÀ½ */
+      if(hangulcode != hanjacode) {  /* Ğe¸aˆa ¬åÈ‚ –A´ö·q */
         *current = (hanjacode & 0xFF00) >> 8;
         *(current+1) = hanjacode & 0x00FF;
         user_task |= TASK_DISPLAYLINE;
@@ -931,7 +931,7 @@ static unsigned int get_ks_graphic_char(void)
   flag = 1;
 
   if(wopen(hgetmaxax()/2-16, hgetmaxay()/2-4, 32, 12))
-    wtitle("¢Ã ¢Ş ±×¸² ¹®ÀÚ ÀÔ·Â ¢Ã");
+    wtitle("ÔÛ KS ‹aŸ± ¢…¸a ·³b ÔÛ");
   else
     return 0;
   do {
@@ -1075,7 +1075,7 @@ static unsigned int get_tg_graphic_char(void)
   ans = isquit = 0;
 
   if(wopen(hgetmaxax()/2-16, hgetmaxay()/2-4, 32, 8))
-    wtitle("¢Ã ¡Å ±×¸² ¹®ÀÚ ÀÔ·Â ¢Ã");
+    wtitle("ÔÛ Ô¯ ‹aŸ± ¢…¸a ·³b ÔÛ");
   else
     return 0;
 
@@ -1276,7 +1276,7 @@ static void restore_line( void )
 }
 
 /*
- *  Ã£±â ºÎºĞ
+ *  Àx‹¡ ¦¦…
  */
 static unsigned char first_key = 0xFF, keys[41], object[41], option[41];
 static unsigned char replace_str[41], word_f = NO, find_flag = NO;
@@ -1337,7 +1337,7 @@ static int find( void )
   }
   else {
     if(found <= f_count) {
-      errno = (find_flag) ? 39 : 37;  /* ´õÀÌ»ó ¾ø´Ù : ±×·±°Å ¾ø´Ù */
+      errno = (find_flag) ? 39 : 37;  /* ”á·¡¬w ´ô”a : ‹aœåˆá ´ô”a */
       errorf();
     }
     found = 0;
@@ -1380,7 +1380,7 @@ static void find_replace( void )
         if(user_task)
           user_func(true);
         delta = len ;
-        writef(0, 16, hgetmaxay()-1, "[¹Ù²Ü±î¿ä? (Y/N)]", NORMAL);
+        writef(0, 16, hgetmaxay()-1, "[¤a‰Œa¶a? (Y/N)]", NORMAL);
         mode = HanKbdState, HanKbdState = false;
         onoff = isreverse();
         hsetreverse(ON);
@@ -1424,14 +1424,14 @@ void  find_condition(int is_replace)
 {
   unsigned char *op; int i;
 
-  if(win_hgets(40, "Ã£À» ¹®ÀÚ¿­Àº ?", object))  {
-    if(is_replace && !win_hgets(40, "¹Ù²Ü ¹®ÀÚ¿­Àº ?", replace_str))
+  if(win_hgets(40, "Àx·i ¢…¸aµi·e ?", object))  {
+    if(is_replace && !win_hgets(40, "¤a‰ ¢…¸aµi·e ?", replace_str))
       return;
     strcuttail(object);
     strcuttail(replace_str);
     /* 93.07.18 */
     replace = is_replace;
-    if(win_hgetdata(40, "¼±ÅÃ»çÇ× (G B U W N ¼ıÀÚ)", "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE", option)) {
+    if(win_hgetdata(40, "¬åÈ‚¬aĞw (G B U W N ®•¸a)", "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE", option)) {
       strcuttail(option);
       strupr( option );
       first_key = 0xFF;
@@ -1448,7 +1448,7 @@ void  find_condition(int is_replace)
       f_count = atoi(op);
       if(f_count == 0)
         f_count = 1;
-      sense = (strchr(option, 'B')) ? -1 :1 ; /* Å½»ö ¹æÇâ */
+      sense = (strchr(option, 'B')) ? -1 :1 ; /* Èq¬‚ ¤wĞ· */
       word_f = (strchr(option , 'W')) ? YES :NO;
       find_string(NO);
     }
@@ -1523,10 +1523,10 @@ static void ctrl_q(int key)
 void errorf( void )
 {
   unsigned char *errmsg[] = {
-    "ÆÄÀÏÀÌ ³Ê¹« Ä¿¿ä",
-    "±×·± ¹®ÀÚ¿­ÀÌ ¾ø½À´Ï´Ù",
-    "»õ·Î¿î ¹®¼­ÀÔ´Ï´Ù",
-    "´õ ÀÌ»ó ¾ø½À´Ï´Ù"
+    "Ìa·©·¡ á¢ Äá¶a",
+    "‹aœå ¢…¸aµi·¡ ´ô¯s“¡”a",
+    "¬¡¶… ¢…¬á·³“¡”a",
+    "”á ·¡¬w ´ô¯s“¡”a"
   };
 
   disperror((errno>=36) ? errmsg[errno-36] : hsys_errlist[errno]);
@@ -1573,11 +1573,11 @@ void init_editor_variable(void)
 }
 
 /*
- *  ÆíÁı±â¿¡ ¾²ÀÌ´Â °¢ º¯¼ö ÃÊ±âÈ­
- *  filename : ÆíÁıÇÒ ÆÄÀÏÀÌ¸§, NULLÀÌ¸é "UNTITLED.TXT"¶ó´Â ÀÌ¸§À» ÁØ´Ù.
- *  bufsize  : ÃÖ´ë ÆíÁıÅ©±â, 0ÀÌ¸é DEFAULTBUFSIZE¸¦ ¼³Á¤ÇÑ´Ù.
- *  kbd_kind : 3¹ú½Ä; HANKBD3   2¹ú½Ä; HANKBD2
- *  hangul   : ÇÑ±Û»óÅÂ·Î ½ÃÀÛ; true   ¿µ¹®»óÅÂ·Î ½ÃÀÛ; false
+ *  Íe»³‹¡µA ³a·¡“e ˆb ¥e® Á¡‹¡ÑÁ
+ *  filename : Íe»³Ği Ìa·©·¡Ÿq, NULL·¡¡e "UNTITLED.TXT"œa“e ·¡Ÿq·i º…”a.
+ *  bufsize  : ÂA” Íe»³Ça‹¡, 0·¡¡e DEFAULTBUFSIZEŸi ¬é¸÷Ğe”a.
+ *  kbd_kind : 3¤é¯¢; HANKBD3   2¤é¯¢; HANKBD2
+ *  hangul   : Ğe‹i¬wÈ¡ ¯¡¸b; true   µw¢…¬wÈ¡ ¯¡¸b; false
  */
 bool init_editor(char *filename, char *help_file_name, long bufsize, int kbd_kind, bool hangul)
 {
@@ -1588,7 +1588,7 @@ bool init_editor(char *filename, char *help_file_name, long bufsize, int kbd_kin
     memerror();
     return false;
   }
-  *memory++ = 0;    /* ÆíÁı¹öÆÛÀÇ Ã³À½¿¡ NULLÀ» ³Ö¾îÁØ´Ù */
+  *memory++ = 0;    /* Íe»³¤áÌá· Àá·qµA NULL·i ı´áº…”a */
 
   line_start = current = last_pos = b_b_ptr = b_k_ptr = eofm = memory;
   *memory = *line_buffer = curx = cury = 0;
@@ -1612,7 +1612,7 @@ bool init_editor(char *filename, char *help_file_name, long bufsize, int kbd_kin
 }
 
 /*
- *  ÆíÁıÃ¢ÀÇ Å©±â´Â ÃÖ¼Ò (5 x 3), ÃÖ´ë (80 x 23)
+ *  Íe»³Àw· Ça‹¡“e ÂA­¡ (5 x 3), ÂA” (80 x 23)
  */
 
 bool editor(int x, int y, int width, int height, int border)
@@ -1626,7 +1626,7 @@ bool editor(int x, int y, int width, int height, int border)
   maxx = hgetmaxax();
   maxy = hgetmaxay();
   /*
-   *  Àû´çÇÏ°Ô ÁÂÇ¥°¡ ÁöÁ¤µÇ¾ú´ÂÁö °Ë»çÇÑ´Ù.
+   *  ¸â”wĞa‰A ¹ÁÎaˆa »¡¸÷–A´ö“e»¡ ˆñ¬aĞe”a.
    */
   if((x < (border ? 1 : 0)) || (x > (border ? maxx-MIN_SCR_COL : maxx-MIN_SCR_COL+1)) ||\
      (y < (border ? 1 : 0)) || (y > (border ? maxy-MIN_SCR_LINE : maxy-MIN_SCR_LINE+1)) ||\
@@ -1653,7 +1653,7 @@ bool editor(int x, int y, int width, int height, int border)
       key = get_key(curx, cury, &state);
 
     /*
-     *  »ç¿ëÀÚ Á¤ÀÇ Å°¸¦ Ã³¸®
+     *  ¬a¶w¸a ¸÷· Ç¡Ÿi ÀáŸ¡
      */
     if(key == hanja_conv_key) {            /* hanja convert key */
       if(hanja_font_exist) {
@@ -1663,7 +1663,7 @@ bool editor(int x, int y, int width, int height, int border)
         hanja();
       }
       else
-        disperror("ÇÑÀÚ ±Û²Ã ÆÄÀÏÀÌ ¾ø½À´Ï´Ù");
+        disperror("Ğe¸a ‹i© Ìa·©·¡ ´ô¯s“¡”a");
     }
     else if(key == ks_graph_key) {         /* KS-5601 graphic character */
       ks_graphic_char();
@@ -1714,7 +1714,7 @@ bool editor(int x, int y, int width, int height, int border)
         case CTRL_Q :
           ctrl_q(get_key2('Q'));
           break;
-        case CTRL_B:  /* Á¦¾î¹®ÀÚ ÀÔ·Â */
+        case CTRL_B:  /* ¹A´á¢…¸a ·³b */
           key = get_key2('B');
           if( (key <' ') && key && \
               (strchr("\r\n\x1A", (unsigned char) key) == NULL))
@@ -1825,7 +1825,7 @@ bool editor(int x, int y, int width, int height, int border)
             while(tmp_tabsize--)
               right();
           }
-          else if(state == HR_HANST) { /* ÇÑ±Û ÀÔ·ÂÀÌ ½ÃÀÛ */
+          else if(state == HR_HANST) { /* Ğe‹i ·³b·¡ ¯¡¸b */
             hangul();
           }
           else if(state == HR_HANIN || state == HR_HANBS) {
@@ -1851,5 +1851,5 @@ bool editor(int x, int y, int width, int height, int border)
 }
 
 /*
- *  ÆÄÀÏ kedit.c ÀÇ ³¡
+ *  Ìa·© kedit.c · {
  */

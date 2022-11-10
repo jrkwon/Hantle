@@ -10,14 +10,14 @@ khgetkey.c
 khauto2.c
 khauto3.c
 
-hanhanja.obj
-hanwindw.obj
-hanerro2.obj
-hanmenu.obj
-hancalc.obj
-hancalen.obj
-hanpcx.obj
-hanpop.obj
+hanhanja.c(hanhanja.h)
+hanwindw.c(hanwindw.h)
+hanerro2.c(hanerro2.h)
+hanmenu.c(hanmenu.h)
+hancalc.c(hancalc.h)
+hancalen.c(hancalc.h)
+hanpcx.c(hanpcx.h)
+hanpop.c(hanpop.h)
 
 hanoutl.lib
 haninl.lib

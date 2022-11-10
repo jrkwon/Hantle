@@ -458,4 +458,3 @@ int _Cdecl getitem(unsigned int keycode)
 }
 
 /* HANMENU.CÑÁ·©· { */
-

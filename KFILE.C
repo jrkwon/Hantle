@@ -65,14 +65,14 @@ int load(void)
         strcpy(load_name, temp_name); */
       }
       if(!file_or_dir_exist(load_name)) {
-        disp_cmsg_sec(" ¬¡¶… Ìa·©·³“¡”a ", 5);
-        strcpy(work_file, load_name);
+	disp_cmsg_sec(" ¬¡¶… Ìa·©·³“¡”a ", 5);
+	strcpy(work_file, load_name);
         user_task = TASK_DISPLAYPAGE;
         disp_status();
         success = YES;
       }
       else if(load_file(load_name, INIT_LOAD)) {
-        strcpy(work_file, load_name);
+	strcpy(work_file, load_name);
         if(strchr(temp_name, '*') || strchr(temp_name, '?')) {
           truncate_filename(load_name);
           sprintf(temp_load, "%s%s", load_name, split_filename(temp_name));
@@ -127,7 +127,7 @@ unsigned int load_file(char *filename, int load_mode)
     if(load_mode == INIT_LOAD) {
       if(ask_save() != CANCEL_ANS) {
         if(l_size > maxeditbuf) {
-          if(yesno("¡A¡¡Ÿ¡ˆa ¦¹¢Ðs“¡”a. –õ¦¦…·i ¸aŸiŒa¶a?", 0) == YES_ANS)
+	  if(yesno("¡A¡¡Ÿ¡ˆa ¦¹¢Ðs“¡”a. –õ¦¦…·i ¸aŸiŒa¶a?", 0) == YES_ANS)
             l_size = maxeditbuf;
           else
             l_size = -1L;
@@ -481,7 +481,7 @@ char *files(char *name)
       errorf();
       return NULL;
     }
-    sprintf(dir, "\\%s%c", path_name, (*path_name) ? '\\' : '' );
+    sprintf(dir, "\\%s%s", path_name, (*path_name) ? "\\" : "" );
   }
   else
     strcat(dir, (dir[strlen(dir)-1]=='\\') ? "" : "\\");
@@ -561,4 +561,3 @@ char *files(char *name)
 /*
  *  Ìa·© kfile.c · {
  */
-

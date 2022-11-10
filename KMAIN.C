@@ -1,15 +1,15 @@
 /* #define  DEBUG */
 
 /*
- *  ÆÄÀÏ   : kmain.c
- *  ³»¿ë   : ÆíÁı±â ÁÖ ÇÔ¼ö
- *  ±âÈ¹   : hantle.prj
- *  ³¯Â¥   : 93.03.16
- *  ¸¸µçÀÌ : ÇÑ¾ç´ëÇĞ±³ ÀüÀÚÅë½Å°øÇĞ°ú ÇÑÆ²¾Æ¸® ±ÇÀç¶ô
- *  ¾Ë¸²±Û : ÀÌ Ç®±×¸²ÀÇ ¹Ø±×¸²Àº °ø°³¸¦ ¿øÄ¢À¸·Î ÇÕ´Ï´Ù.
- *           ¿Ö³ÄÇÏ¸é, ³ªµµ ´Ù¸¥ ¹Ø±×¸²ÀÇ µµ¿òÀ» ¸¹ÀÌ ¹Ş¾ÒÀ¸´Ï±î¿ä.
- *           µû¶ó¼­, ÀÌ ¹Ø±×¸²À» ¹ŞÀ¸½Å ºĞÀº ´Ù¸¥µ¥ »ç¿ëÇÏ¼Åµµ µÇÁö¸¸
- *           »õ·Î ¸¸µç ¹Ø±×¸²µµ Àß Á¤¸®ÇÏ¼Å¼­ °ø°³ÇØ ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.
+ *  Ìa·©   : kmain.c
+ *  ¶w   : Íe»³‹¡ º Ğq®
+ *  ‹¡ÒB   : hantle.prj
+ *  i¼a   : 93.03.16
+ *   e—e·¡ : Ğe´·”ĞbŠa ¸å¸aÉ·¯¥‰·Ğb‰Á ĞeËi´aŸ¡ Š¥¸œb
+ *  ´iŸ±‹i : ·¡ Î‰‹aŸ±· £»‹aŸ±·e ‰·ˆŸi ¶¥Ã¢·a¡ Ğs“¡”a.
+ *           µá¡Ğa¡e, a•¡ ”aŸe £»‹aŸ±· •¡¶‘·i  g·¡ ¤h´v·a“¡Œa¶a.
+ *           ˜aœa¬á, ·¡ £»‹aŸ±·i ¤h·a¯¥ ¦…·e ”aŸe•A ¬a¶wĞa­a•¡ –A»¡ e
+ *           ¬¡  e—e £»‹aŸ±•¡ ¸i ¸÷Ÿ¡Ğa­a¬á ‰·ˆĞ º¯¡‹¡ ¤aœs“¡”a.
  */
 #include <stdio.h>
 #include <dos.h>
@@ -69,20 +69,20 @@ static int cur_han_font = 1, /* HAN8GD2 */ cur_eng_font = 1 /* ENGGD5 */;
 static char logo_file[80];
 
 /*
- *  ÇÑÆ² ±¸¼º ÆÄÀÏÀÇ ±¸Á¶  1.00
+ *  ĞeËi Š¬÷ Ìa·©· Š¹¡  1.00
  *  -------------------------------------------------------------------
- *  ½Äº°ÀÚ - HANyang gulTLE ConFiGuration File V 1.00<EOF><NULL>
- *                     42¹ÙÀÌÆ®
- *  ³»Á¤ È®ÀåÀÚ        5¹ÙÀÌÆ®
- *  ÅÇ ³ĞÀÌ            4ºñÆ®
- *  µé¿©¾²±â           1ºñÆ®
- *  ÀÎ¼âÈÄ ¹ñÀ½        1ºñÆ®
- *  ÇÑ±Û ±Û²Ã          4ºñÆ®
- *  ¿µ¹® ±Û²Ã          4ºñÆ®
- *  ÇÑ±Û ÀÚÆÇ          1ºñÆ®
- *  Å×µÎ¸® »óÅÂ        1ºñÆ®
+ *  ¯¢¥i¸a - HANyang gulTLE ConFiGuration File V 1.00<EOF><NULL>
+ *                     42¤a·¡Ëa
+ *  ¸÷ ÑÂ¸w¸a        5¤a·¡Ëa
+ *  È“ ì·¡            4§¡Ëa
+ *  —iµa³a‹¡           1§¡Ëa
+ *  ·¥­áÒ ¤›·q        1§¡Ëa
+ *  Ğe‹i ‹i©          4§¡Ëa
+ *  µw¢… ‹i©          4§¡Ëa
+ *  Ğe‹i ¸aÌe          1§¡Ëa
+ *  ÉA–Ÿ¡ ¬wÈ        1§¡Ëa
  *  -------------------------------------------------------------------
- *  ¸ğµÎ               42 + 5 + 2 = 49¹ÙÀÌÆ®
+ *  ¡¡–               42 + 5 + 2 = 49¤a·¡Ëa
  */
 
 struct cfg_t {
@@ -103,82 +103,82 @@ struct cfg_t cfg;
 
 void initusermenu(int fcolor, int bcolor, int init_menu)
 {
-  nmenu = 6;         /* Â÷¸²Ç¥ °¹¼ö 6 °³ */
+  nmenu = 6;         /* ÀaŸ±Îa ˆ•® 6 ˆ */
 
-  pmenu[0].menu = "ÇÑÆ²";
+  pmenu[0].menu = "ĞeËi";
   pmenu[0].nitem = 5;
-  pmenu[0].item[0] = "ÇÑÆ²ÀÌ¶õ?";    pmenu[0].shortcut[0] = 0;
-  pmenu[0].item[1] = "µµ¿ò¸»";       pmenu[0].shortcut[1] = F1;
+  pmenu[0].item[0] = "ĞeËi·¡œe?";    pmenu[0].shortcut[0] = 0;
+  pmenu[0].item[1] = "•¡¶‘ i";       pmenu[0].shortcut[1] = F1;
   pmenu[0].item[2] = "-";            pmenu[0].shortcut[2] = 0;
-  pmenu[0].item[3] = "´Ş·Â";         pmenu[0].shortcut[3] = 0;
-  pmenu[0].item[4] = "°è»ê±â";       pmenu[0].shortcut[4] = 0;
+  pmenu[0].item[3] = "”ib";         pmenu[0].shortcut[3] = 0;
+  pmenu[0].item[4] = "‰¬e‹¡";       pmenu[0].shortcut[4] = 0;
 
-  pmenu[1].menu = "¼­·ùÃ¶";
+  pmenu[1].menu = "¬áŸAÀé";
   pmenu[1].nitem = 8;
-  pmenu[1].item[0] = "»õ ±Û";        pmenu[1].shortcut[0] = ALT_N;
-  pmenu[1].item[1] = "ºÒ·¯¿À±â";     pmenu[1].shortcut[1] = ALT_O;
-  pmenu[1].item[2] = "ÀúÀåÇÏ±â";     pmenu[1].shortcut[2] = ALT_S;
-  pmenu[1].item[3] = "»õÀÌ¸§À¸·Î";   pmenu[1].shortcut[3] = ALT_V;
+  pmenu[1].item[0] = "¬ ‹i";        pmenu[1].shortcut[0] = ALT_N;
+  pmenu[1].item[1] = "¦‰œáµ¡‹¡";     pmenu[1].shortcut[1] = ALT_O;
+  pmenu[1].item[2] = "¸á¸wĞa‹¡";     pmenu[1].shortcut[2] = ALT_S;
+  pmenu[1].item[3] = "¬·¡Ÿq·a¡";   pmenu[1].shortcut[3] = ALT_V;
   pmenu[1].item[4] = "-";            pmenu[1].shortcut[4] = 0;
-  pmenu[1].item[5] = "°æ·Î¹Ù²Ù±â";   pmenu[1].shortcut[5] = 0;
-  pmenu[1].item[6] = "µµ½º³ªµéÀÌ";   pmenu[1].shortcut[6] = ALT_F10;
-  pmenu[1].item[7] = "³¡";           pmenu[1].shortcut[7] = ALT_X;
+  pmenu[1].item[5] = "‰w¡¤a‹¡";   pmenu[1].shortcut[5] = 0;
+  pmenu[1].item[6] = "•¡¯aa—i·¡";   pmenu[1].shortcut[6] = ALT_F10;
+  pmenu[1].item[7] = "{";           pmenu[1].shortcut[7] = ALT_X;
 
-  pmenu[2].menu = "ºí·°";
+  pmenu[2].menu = "§iœâ";
   pmenu[2].nitem = 9;
-  pmenu[2].item[0] = "ºí·° ½ÃÀÛ";    pmenu[2].shortcut[0] = CTRL_B;
-  pmenu[2].item[1] = "ºí·° ³¡";      pmenu[2].shortcut[1] = CTRL_E;
+  pmenu[2].item[0] = "§iœâ ¯¡¸b";    pmenu[2].shortcut[0] = CTRL_B;
+  pmenu[2].item[1] = "§iœâ {";      pmenu[2].shortcut[1] = CTRL_E;
   /* CTRL_H is 8 --> ASCII 8 is BS */
-  pmenu[2].item[2] = "ºí·° Ç¥½Ã";    pmenu[2].shortcut[2] = CTRL_S;
-  pmenu[2].item[3] = "ºí·° º¹»ç";    pmenu[2].shortcut[3] = CTRL_C;
-  pmenu[2].item[4] = "ºí·° ÀÌµ¿";    pmenu[2].shortcut[4] = CTRL_V;
-  pmenu[2].item[5] = "ºí·° Áö¿ì±â";  pmenu[2].shortcut[5] = CTRL_D;
+  pmenu[2].item[2] = "§iœâ Îa¯¡";    pmenu[2].shortcut[2] = CTRL_S;
+  pmenu[2].item[3] = "§iœâ ¥¢¬a";    pmenu[2].shortcut[3] = CTRL_C;
+  pmenu[2].item[4] = "§iœâ ·¡•·";    pmenu[2].shortcut[4] = CTRL_V;
+  pmenu[2].item[5] = "§iœâ »¡¶‹¡";  pmenu[2].shortcut[5] = CTRL_D;
   pmenu[2].item[6] = "-";            pmenu[2].shortcut[6] = 0;
-  pmenu[2].item[7] = "ºí·° ÀĞ±â";    pmenu[2].shortcut[7] = CTRL_R;
-  pmenu[2].item[8] = "ºí·° ¾²±â";    pmenu[2].shortcut[8] = CTRL_W;
+  pmenu[2].item[7] = "§iœâ ·ª‹¡";    pmenu[2].shortcut[7] = CTRL_R;
+  pmenu[2].item[8] = "§iœâ ³a‹¡";    pmenu[2].shortcut[8] = CTRL_W;
 
-  pmenu[3].menu = "Ã£±â";
+  pmenu[3].menu = "Àx‹¡";
   pmenu[3].nitem = 8;
-  pmenu[3].item[0] = "Ã£±â";         pmenu[3].shortcut[0] = ALT_F;
-  pmenu[3].item[1] = "¹Ù²Ù±â";       pmenu[3].shortcut[1] = ALT_A;
-  pmenu[3].item[2] = "´Ù½Ã Ã£±â";    pmenu[3].shortcut[2] = ALT_L;
+  pmenu[3].item[0] = "Àx‹¡";         pmenu[3].shortcut[0] = ALT_F;
+  pmenu[3].item[1] = "¤a‹¡";       pmenu[3].shortcut[1] = ALT_A;
+  pmenu[3].item[2] = "”a¯¡ Àx‹¡";    pmenu[3].shortcut[2] = ALT_L;
   pmenu[3].item[3] = "-";            pmenu[3].shortcut[3] = 0;
-  pmenu[3].item[4] = "ºí·° Ã³À½À¸·Î";pmenu[3].shortcut[4] = ALT_B;
-  pmenu[3].item[5] = "ºí·° ³¡À¸·Î";  pmenu[3].shortcut[5] = ALT_E;
+  pmenu[3].item[4] = "§iœâ Àá·q·a¡";pmenu[3].shortcut[4] = ALT_B;
+  pmenu[3].item[5] = "§iœâ {·a¡";  pmenu[3].shortcut[5] = ALT_E;
   pmenu[3].item[6] = "-";            pmenu[3].shortcut[6] = 0;
-  pmenu[3].item[7] = "ÀÌÀü À§Ä¡·Î";  pmenu[3].shortcut[7] = CTRL_Z;
+  pmenu[3].item[7] = "·¡¸å ¶áÃ¡¡";  pmenu[3].shortcut[7] = CTRL_Z;
 
-  pmenu[4].menu = "Ãâ·Â";
+  pmenu[4].menu = "Â‰b";
   pmenu[4].nitem = 4;
-  pmenu[4].item[0] = "ÀüÃ¼ ÀÎ¼â";    pmenu[4].shortcut[0] = ALT_P;
-  pmenu[4].item[1] = "ºí·° ÀÎ¼â";    pmenu[4].shortcut[1] = CTRL_A;
+  pmenu[4].item[0] = "¸åÁA ·¥­á";    pmenu[4].shortcut[0] = ALT_P;
+  pmenu[4].item[1] = "§iœâ ·¥­á";    pmenu[4].shortcut[1] = CTRL_A;
   pmenu[4].item[2] = "-";            pmenu[4].shortcut[2] = 0;
-  pmenu[4].item[3] = "ÀÎ¼â ¼³Á¤";    pmenu[4].shortcut[3] = CTRL_P;
+  pmenu[4].item[3] = "·¥­á ¬é¸÷";    pmenu[4].shortcut[3] = CTRL_P;
 
-  pmenu[5].menu = "¼±ÅÃ»çÇ×";
+  pmenu[5].menu = "¬åÈ‚¬aĞw";
   pmenu[5].nitem = 12;
-  pmenu[5].item[0] = (indent_mode) ? "³»¾î¾²±â" : "µé¿©¾²±â" ;
+  pmenu[5].item[0] = (indent_mode) ? "´á³a‹¡" : "—iµa³a‹¡" ;
   pmenu[5].shortcut[0] = CTRL_I;
-  pmenu[5].item[1] = "ÅÇÅ©±â ¹Ù²Ù±â";pmenu[5].shortcut[1] = 0;
-  pmenu[5].item[2] = (formfeed_mode) ? "ÀÎ¼âÈÄ ¾È¹ñÀ½" : "ÀÎ¼âÈÄ ¹ñÀ½  " ;
+  pmenu[5].item[1] = "È“Ça‹¡ ¤a‹¡";pmenu[5].shortcut[1] = 0;
+  pmenu[5].item[2] = (formfeed_mode) ? "·¥­áÒ ´e¤›·q" : "·¥­áÒ ¤›·q  " ;
   pmenu[5].shortcut[2] = 0;
-  pmenu[5].item[3] = (is_border) ? "Å×µÎ¸® ¾È±×¸²" : "Å×µÎ¸® ±×¸²  " ;
+  pmenu[5].item[3] = (is_border) ? "ÉA–Ÿ¡ ´e‹aŸ±" : "ÉA–Ÿ¡ ‹aŸ±  " ;
   pmenu[5].shortcut[3] = 0;
-  pmenu[5].item[4] = "È®ÀåÀÚ ¼³Á¤";  pmenu[5].shortcut[4] = 0;
+  pmenu[5].item[4] = "ÑÂ¸w¸a ¬é¸÷";  pmenu[5].shortcut[4] = 0;
   pmenu[5].item[5] = "-";            pmenu[5].shortcut[5] = 0;
-  pmenu[5].item[6] = "ÇÑ±Û ±Û²Ã";    pmenu[5].shortcut[6] = F7;
-  pmenu[5].item[7] = "¿µ¹® ±Û²Ã";    pmenu[5].shortcut[7] = F8;
+  pmenu[5].item[6] = "Ğe‹i ‹i©";    pmenu[5].shortcut[6] = F7;
+  pmenu[5].item[7] = "µw¢… ‹i©";    pmenu[5].shortcut[7] = F8;
   pmenu[5].item[8] = "-";            pmenu[5].shortcut[8] = 0;
-  pmenu[5].item[9] = "ÇÑ±Û ÀÚÆÇ";    pmenu[5].shortcut[9] = ALT_K;
+  pmenu[5].item[9] = "Ğe‹i ¸aÌe";    pmenu[5].shortcut[9] = ALT_K;
   pmenu[5].item[10] = "-";           pmenu[5].shortcut[10] = 0;
-  pmenu[5].item[11] = "È¯°æ ÀúÀå";   pmenu[5].shortcut[11] = 0;
+  pmenu[5].item[11] = "ÑÅ‰w ¸á¸w";   pmenu[5].shortcut[11] = 0;
 
   definemenu(fcolor, bcolor, init_menu, 2);
 }
 
 
 /*
- *  ÇÏµå¿ş¾î ¿¡·¯ÀÇ ÀÎÅÍ·´Æ® ÇÚµé·¯
+ *  Ğa—a¶Á´á µAœá· ·¥ÈáœóËa Ğ…—iœá
  */
 int handler(void)
 {
@@ -207,7 +207,7 @@ void init_sys_color(void)
 void about_hantle(void)
 {
   if(wopen(21, 9, 40, 10)) {
-    wcenter(2, "¢º  ÇÑ¾ç ±ÛÆ² 1.00 ÆÇ  ¢¸");
+    wcenter(2, "Ô  Ğe´· ‹iËi 1.00 Ìe  Ô‘");
     view_pcx_file(11*8, 2*16, logo_file, bcolor, fcolor);
     wait_getkey(5);
     wclose();
@@ -220,13 +220,13 @@ void dosshell(int fcolor, int bcolor)
 
   hrestorecrtmode();
   comspec = (char*)getenv("COMSPEC");
-  cprintf("         ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»\n\r");
-  cprintf("         º                   Hantle Dos Shell                 º\n\r");
-  cprintf("         ÇÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¶\n\r");
-  cprintf("         º                                                    º\n\r");
-  cprintf("         º       To return Hantle, type 'EXIT'. 1992 Kwon     º\n\r");
-  cprintf("         º                                                    º\n\r");
-  cprintf("         ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼\n\r\n\r");
+  cprintf("         +----------------------------------------------------+\n\r");
+  cprintf("         |                  Hantle Dos Shell                  |\n\r");
+  cprintf("         |----------------------------------------------------|\n\r");
+  cprintf("         |                                                    |\n\r");
+  cprintf("         |      To return Hantle, type 'EXIT'. 1992 Kwon      |\n\r");
+  cprintf("         |                                                    |\n\r");
+  cprintf("         +----------------------------------------------------+\n\r\n\r");
 
   putenv("PROMPT=$_Type EXIT to Return to Hantle$_(Hantle)$p$g");
   if(spawnl(P_WAIT, comspec, comspec, NULL) == -1) {
@@ -246,12 +246,12 @@ void dosshell(int fcolor, int bcolor)
 
 void change_hangul_font(void)
 {
-  char *title = "ÇÑ±Û ±Û²Ã ¹Ù²Ù±â";
+  char *title = "Ğe‹i ‹i© ¤a‹¡";
   char *menu[] = {
-    " 1.  ¹ÙÅÁÃ¼     ",
-    " 2.  ³×¸ğÃ¼     ",
-    " 3.  ¾È»ó¼öÃ¼   ",
-    " 4.  ¼¼¹úÃ¼     "
+    " 1.  ¤aÈwÁA     ",
+    " 2.  ‘A¡¡ÁA     ",
+    " 3.  ´e¬w®ÁA   ",
+    " 4.  ­A¤éÁA     "
   };
   int ans;
 
@@ -267,14 +267,14 @@ void change_hangul_font(void)
 
 void change_english_font(void)
 {
-  char *title = "¿µ¹® ±Û²Ã ¹Ù²Ù±â";
+  char *title = "µw¢… ‹i© ¤a‹¡";
   char *menu[] = {
-    " 1.  ¹ÙÅÁÃ¼     ",
-    " 2.  µÕ±ÙÃ¼     ",
-    " 3.  Å« ¹ÙÅÁÃ¼  ",
-    " 4.  ³×¸ğÃ¼     ",
-    " 5.  ´©¿îÃ¼     ",
-    " 6.  ¼Õ±Û¾¾Ã¼   "
+    " 1.  ¤aÈwÁA     ",
+    " 2.  –—‹eÁA     ",
+    " 3.  Çe ¤aÈwÁA  ",
+    " 4.  ‘A¡¡ÁA     ",
+    " 5.  ’¶…ÁA     ",
+    " 6.  ­¥‹i³¡ÁA   "
   };
   int ans;
 
@@ -354,10 +354,10 @@ void write_config(char *cfg_file, char *cfg_id)
 
     fwrite(&cfg, sizeof(struct cfg_t), 1, fcfg);
     fclose(fcfg);
-    disp_cmsg_sec(" È¯°æ ÆÄÀÏÀ» ÀúÀåÇß½À´Ï´Ù ", 5);
+    disp_cmsg_sec(" ÑÅ‰w Ìa·©·i ¸á¸wĞ–¯s“¡”a ", 5);
   }
   else {
-    disperror(" È¯°æ ÆÄÀÏÀ» ÀúÀåÇÒ ¼ö°¡ ¾ø³×¿ä ");
+    disperror(" ÑÅ‰w Ìa·©·i ¸á¸wĞi ®ˆa ´ô‘A¶a ");
   }
 }
 
@@ -488,7 +488,7 @@ void config_menu(void)
     case INDENT_ITEM :
       beep();
       indent_mode = !(indent_mode);
-      pmenu[5].item[0] = (indent_mode) ? "³»¾î¾²±â" : "µé¿©¾²±â";
+      pmenu[5].item[0] = (indent_mode) ? "´á³a‹¡" : "—iµa³a‹¡";
       disp_indent_status();
       break;
     case TAB_ITEM :
@@ -500,19 +500,19 @@ void config_menu(void)
           set_tabsize(tab_size);
         }
         else {
-          disperror(" ÅÇ ³ĞÀÌ´Â 0 ¡­ 8 ÀÌ¾î¾ß ÇØ¿ä ");
+          disperror(" È“ ì·¡“e 0 Ô® 8 ·¡´á´¡ Ğ¶a ");
         }
       }
       break;
     case FORMFEED_ITEM :
       beep();
       formfeed_mode = !formfeed_mode;
-      pmenu[5].item[2] = (formfeed_mode) ? "ÀÎ¼âÈÄ ¾È¹ñÀ½" : "ÀÎ¼âÈÄ ¹ñÀ½  ";
+      pmenu[5].item[2] = (formfeed_mode) ? "·¥­áÒ ´e¤›·q" : "·¥­áÒ ¤›·q  ";
       break;
     case BORDER_ITEM :
       beep();
       is_border = !is_border;
-      pmenu[5].item[3] = (is_border) ? "Å×µÎ¸® ¾È±×¸²" : "Å×µÎ¸® ±×¸²  ";
+      pmenu[5].item[3] = (is_border) ? "ÉA–Ÿ¡ ´e‹aŸ±" : "ÉA–Ÿ¡ ‹aŸ±  ";
       set_max_width_height(scr_cfg[is_border].width, scr_cfg[is_border].height);
       draw_border(scr_cfg[is_border].x, scr_cfg[is_border].y,
                   scr_cfg[is_border].width, scr_cfg[is_border].height, scr_cfg[is_border].border);
@@ -574,7 +574,7 @@ void main_menu(int key)
 void main(int argc, unsigned char *argv[])
 {
   char edit_file[80], hanja_file[80], help_file[80];
-  char init_dir[80];   /* ÇÁ·Î±×·¥ÀÌ Ã³À½ ±âµ¿µÈ ¸ñ·Ï */
+  char init_dir[80];   /* Ïa¡‹aœ‘·¡ Àá·q ‹¡•·–E ¡¢¢ */
   int ans;
 
   harderr(handler);
@@ -623,6 +623,6 @@ void main(int argc, unsigned char *argv[])
 }
 
 /*
- *  ÆÄÀÏ kedit.c ÀÇ ³¡
+ *  Ìa·© kedit.c · {
  */
 
